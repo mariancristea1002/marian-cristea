@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define max 100
+int stiv[max];
+int varf = -1;
+int stiv1[max];
+int varf1 = -1;
+void push(int x, int *varf, int stiv[])
+{if (*varf == max - 1)
+	{printf("Stiva e plina!\n");
+		return;}
+	stiv[++(*varf)] = x;}
+void Pop(int* varf, int stiv[])
+{if (*varf == -1)
+	{printf("Eroare!\n");
+		return;}
+	(*varf)--;}
+int peek(int* varf, int stiva[])
+{	return stiv[*varf];}
+int egoala(int* varf)
+{	if (*varf == -1)
+	{
+		return 1;}
+	return 0;}
+void Print(int *varf,int stiv[])
+{int i;
+	printf("Stiva: ");
+	for (i = 0; i <= *varf; i++)
+	{	printf("%d ", stiv[i]);}
+	printf("\n");}
+int main()
+{int aux, x, n;
+	int i;
+	varf = -1;
+	printf("nr elemente ");
+	scanf("%d", &n);
+	for (i = 0; i < n; i++)
+	{printf("Elementul %d ", i + 1);
+		scanf("%d", &x);
+       aux = x;
+		while (aux)
+		{push(aux % 10, &varf, stiv);
+			aux = aux / 10;}
+		aux = x;
+		while (aux)
+		{if (aux % 10 == Peek(&varf, stiv))
+			{			push(x, &varf1, stiv1);
+				break;}
+			aux = aux / 10;
+			varf--;}}
+   Print(&varf1,stiv1);
+	system("pause");
+	return 0;}
